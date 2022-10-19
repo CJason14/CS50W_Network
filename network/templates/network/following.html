@@ -1,0 +1,22 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <h2>Following</h2>
+    <div class="profile">
+        <div id="Posts">
+        </div>
+        <br>
+        <br>
+        <div class="pages">
+            <div id="Pages">
+
+            </div>
+            <button class="button" onclick="nextpage()">Next</button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/following_posts.js' %}"></script>
+{% endblock %}

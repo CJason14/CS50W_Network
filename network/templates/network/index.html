@@ -1,0 +1,37 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <h2>All Posts</h2>
+    <div class="profile">
+        {% if user.is_authenticated %}
+        <div class="Post">
+            <div>
+                <h5>{{ user.username }}</h5>
+            </div>
+            <hr>
+            <div class="center">
+                <textarea id="newpost_content" class="textarea"></textarea>
+            </div>
+            <div class="right">
+                <button onclick="newpost()" class="button postbutton">New Post</button>
+            </div>
+        </div>
+        <br>
+        {% endif %}
+        <div id="Posts">
+        </div>
+        <br>
+        <br>
+        <div class="pages">
+            <div id="Pages">
+
+            </div>
+            <button class="button" onclick="nextpage()">Next</button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/posts.js' %}"></script>
+{% endblock %}

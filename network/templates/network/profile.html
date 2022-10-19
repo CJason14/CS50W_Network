@@ -1,0 +1,20 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="profile">
+        <h1 class="profile_name">{{ user.username }}</h1>
+        <div class="profile_count">
+            <a href=""><h5 class="profile_counter"><b>Follower</b> <p>{{ follower}}</p></h5></a>
+            <a href=""><h5 class="profile_counter"><b>Following</b> <p>{{ following}}</p></h5></a>
+        </div>
+        <hr>
+        <div id="Posts">
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/ownposts.js' %}"></script>
+{% endblock %}

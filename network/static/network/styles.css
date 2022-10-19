@@ -1,0 +1,159 @@
+.body{
+    padding: 15px;
+}
+
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.profile_count{
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.profile_count a{
+    text-decoration: none;
+    color: black;
+}
+
+.profile_counter{
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Post{
+    background-color: rgba(0, 0, 0, 0.17);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 600px;
+    height: 300px;
+    position: relative;
+    margin-top: 20px;
+}
+
+.unheart {
+    background-color: gray;
+    display: inline-block;
+    height: 18px;
+    margin: 0 10px;
+    position: relative;
+    top: 0;
+    transform: rotate(-45deg);
+    width: 18px;
+  }
+  
+  .unheart:before,
+  .unheart:after {
+    content: "";
+    background-color: gray;
+    border-radius: 50%;
+    height: 18px;
+    position: absolute;
+    width: 18px;
+  }
+  
+  .unheart:before {
+    top: -9px;
+    left: 0;
+  }
+  
+  .unheart:after {
+    left: 9px;
+    top: 0;
+  }
+
+  .bottom{
+    position: absolute;
+    bottom: 10px;
+  }
+
+  .heart {
+    background-color: red;
+    display: inline-block;
+    height: 18px;
+    margin: 0 10px;
+    position: relative;
+    top: 0;
+    transform: rotate(-45deg);
+    width: 18px;
+  }
+  
+  .heart:before,
+  .heart:after {
+    content: "";
+    background-color: red;
+    border-radius: 50%;
+    height: 18px;
+    position: absolute;
+    width: 18px;
+  }
+  
+  .heart:before {
+    top: -9px;
+    left: 0;
+  }
+  
+  .heart:after {
+    left: 9px;
+    top: 0;
+  }
+
+  .bottom{
+    position: absolute;
+    bottom: 10px;
+  }
+
+  .button{
+    border: 0px;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-family: sans-serif;
+    background-color: rgba(0, 0, 0, 0.17);
+    max-width: 110px;
+    min-width: 110px;
+  }
+
+.pages{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.textarea{
+  height: 170px;
+  width: 550px;
+  resize: none;
+  border-radius: 7px;
+  padding: 4px;
+}
+
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right{
+  display: flex;
+  justify-content: right;
+}
+
+.postbutton{
+  margin: 12px;
+}
+
+.editbutton{
+  margin: 5px;
+  border: 0;
+  border-radius: 10px;
+  padding: 7px 17px;
+}
