@@ -41,9 +41,10 @@ function loadpost() {
                 edit.classList.add("editbutton");
                 edit.appendChild(edit_content);
                 const id = posts[count].id;
+                const time = posts[count].id;
                 const content_button = posts[count].content;
                 edit.addEventListener('click', function () {
-                    edit_func(id, content_button);
+                    edit_func(time, id, content_button);
                 })
                 info_div.appendChild(username);
                 info_div.appendChild(timestamp);
@@ -76,7 +77,7 @@ function loadpost() {
         });
 }
 
-function edit_func(id, content){
+function edit_func(time, id, content){
     document.getElementById('Posts').innerHTML = "";
     const title = document.createElement("h2");
     const title_content = document.createTextNode("Edit");
@@ -86,6 +87,7 @@ function edit_func(id, content){
     const content_textarea = document.createElement("textarea");
     const content_content = document.createTextNode(content);
     content_textarea.appendChild(content_content);
+    content_textarea.id = "edit_content";
     content_textarea.classList.add("textarea");
     document.getElementById('Posts').appendChild(content_textarea);
 
@@ -96,7 +98,20 @@ function edit_func(id, content){
     save.appendChild(save_content);
     save.classList.add("button");
     save.addEventListener('click', function () {
-
+        fetch("newpost", {
+            method: 'PUT',
+            body: JSON.stringify({
+                content: document.getElementById("edit_content").value,
+                timestamp: time,
+                id: id
+            })
+        })
+        .then(response => response.json())
+        .then(result => {
+            document.getElementById('Posts').innerHTML = "";
+            window.confirm("Post updated!");
+            loadpost();
+        });
     });
     document.getElementById('Posts').appendChild(document.createElement("br"));
     document.getElementById('Posts').appendChild(save);

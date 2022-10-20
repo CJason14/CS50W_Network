@@ -1,6 +1,9 @@
 import json
 from errno import ESTALE
+from sqlite3 import Timestamp
+from time import time
 from unittest import removeResult
+from venv import create
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
@@ -197,7 +200,21 @@ def newpost(request):
                 creator = username,
                 content = content 
             )
-    return JsonResponse({"Posted": "1"})
+            return JsonResponse({"Posted": "1"})
+        if request.method == "PUT":
+            Post.objects.filter(
+                id = data["id"]
+            ).delete()
+            Post.objects.create(
+                id = data["id"],
+                creator = username,
+                content = content,
+                timestamp = data["timestamp"]
+            )
+            print("Edited")
+            return JsonResponse({"Edited": "1"})
+
+    return JsonResponse({})
 
 @csrf_exempt
 def follow(request):
